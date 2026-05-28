@@ -153,10 +153,10 @@ function renderSkills() {
     let iconHtml = '';
     if (icon) {
       if (icon.startsWith('<svg')) {
-        iconHtml = `<span class="skill-icon">${icon}</span>`;
+        iconHtml = `<span class="skill-icon" aria-label="${s}">${icon}</span>`;
       } else {
         const iconUrl = icon.startsWith('http') ? icon : `https://cdn.simpleicons.org/${icon}/${iconColor}`;
-        iconHtml = `<img class="skill-icon" src="${iconUrl}" alt="" loading="lazy">`;
+        iconHtml = `<img class="skill-icon" src="${iconUrl}" alt="${s}" loading="lazy">`;
       }
     }
     const delay = index * 30; // 30ms stagger

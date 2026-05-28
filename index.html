@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harsh Darji | Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="loader-content">
+      <img src="images/logo.svg" alt="Loading..." class="loader-logo">
+      <div class="loader-bar">
+        <div class="loader-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <img src="images/logo.svg" alt="Harsh Darji Logo" width="32" height="32">
+      <span>Harsh.</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#experience">/Experience</a></li>
+      <li><a href="#skills">/Skills</a></li>
+      <li><a href="#projects">/Projects</a></li>
+      <li><a href="#volunteering">/Volunteering</a></li>
+      <li><a href="#education">/Education</a></li>
+      <li><a href="#contact">/Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Let's
+      Talk</button>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-left">
+      <p class="hero-greeting fade-in">Hello, I'm</p>
+      <h1 class="hero-name fade-in" style="animation-delay:0.1s">Harsh Darji</h1>
+      <div class="hero-role fade-in" style="animation-delay:0.2s">
+        A <span class="typed-text" id="typed"></span><span class="cursor"></span>
+      </div>
+      <p class="hero-desc fade-in" style="animation-delay:0.3s">
+        Driven by a passion to decipher the world built on 0's and 1's, I thrive on creating impactful solutions through
+        technology, crafting products that inspire change and innovation.
+      </p>
+      <div class="hero-socials fade-in" style="animation-delay:0.4s">
+        <a class="social-link" href="https://www.linkedin.com/in/harsh-darji-b23015290/" target="_blank"
+          title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path
+              d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+          </svg>
+        </a>
+        <a class="social-link" href="https://github.com/Harsh172121" target="_blank" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+          </svg>
+        </a>
+        <a class="social-link" href="mailto:harsh@email.com" target="_blank" title="Gmail">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path
+              d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg>
+        </a>
+        <a class="social-link" href="https://www.instagram.com/harsh_docx?igsh=dWZ4dWs0Z3ZlbTVz&utm_source=qr" target="_blank" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 7 1.25 1.25 0 0 1 16 5.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+          </svg>
+        </a>
+      </div>
+      <a href="Harsh Darji CV.pdf" class="hero-resume fade-in" style="animation-delay:0.5s" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z" />
+        </svg>
+        RESUME
+      </a>
+    </div>
+    <div class="hero-right fade-in" style="animation-delay:0.2s">
+      <div class="hero-img-wrapper">
+        <img src="images/pic.png" alt="Harsh Darji" />
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- EXPERIENCE -->
+  <div class="section-full" id="experience">
+    <div class="section-inner">
+      <p class="section-eyebrow">My Career Path</p>
+      <h2 class="section-title">Work Experience</h2>
+      <div class="exp-grid">
+
+        <div class="exp-card" data-aos="fade-up">
+          <div class="exp-header">
+            <img class="exp-logo" src="images/image.png" alt="Elsner Technologies logo">
+            <div class="exp-meta">
+              <div class="exp-title">Mobile App Development Intern</div>
+              <div class="exp-company">
+                <a href="https://www.elsner.com/?utm_source=gmb&utm_medium=google" target="_blank"
+                  rel="noopener noreferrer" class="company-link">
+                  Elsner Technologies Pvt. Ltd.
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"
+                    style="width:12px;height:12px;display:inline-block;vertical-align:middle;margin-top:-2px">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+              <div class="exp-date">Aug 2023 - Sep 2023 · 2 mos</div>
+              <div class="exp-date">Ahmedabad, Gujarat, India</div>
+            </div>
+            <button class="expand-btn toggle-exp-btn" onclick="toggleDetails(this)" aria-label="Show Details"
+              style="flex-shrink:0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="exp-tags">
+            <span class="tag">Android Studio</span><span class="tag">Java</span><span class="tag">Kotlin</span>
+            <span class="tag">UI/UX</span><span class="tag">Debugging</span><span class="tag">Testing</span>
+          </div>
+          <p class="exp-desc">
+            I successfully completed an advanced 45-day Android Development Internship at Elsner Technologies, where I
+            contributed to actual project development using Android Studio, Java, and Kotlin. My responsibilities
+            included designing user interfaces, coding backend logic, and integrating various features. I actively
+            participated in UI/UX enhancement, debugging, and real-time testing. This experience sharpened my
+            development skills and gave me exposure to working in a professional development environment, preparing me
+            for full-time industry roles.
+          </p>
+          <div class="exp-details">
+            <div class="exp-details-inner">
+              <div
+                style="margin-bottom:0.75rem;font-size:0.8rem;font-weight:600;color:var(--muted2);font-family:'Geist Mono',monospace;text-transform:uppercase;letter-spacing:0.08em">
+
+                Internship Certificate</div>
+              <div class="cert-grid">
+                <div class="cert-card" data-aos="fade-up">
+                  <div class="cert-preview">
+                    <img src="images/c1.png" alt="Android Development Internship Certificate">
+                    <span class="cert-badge">Verified</span>
+                  </div>
+                  <div class="cert-body">
+                    <div class="cert-title">Android Development Internship</div>
+                    <div class="cert-issuer">Elsner Technologies Pvt. Ltd.</div>
+                    <div class="cert-meta">Aug 2023 · 45 Days · Ahmedabad</div>
+                    <p class="cert-desc">Issued for successful completion of an Android Development internship with
+                      hands-on
+                      project work in Java, Kotlin, and Android Studio.</p>
+                    <div class="cert-actions">
+                      <a class="cert-btn" href="images/c1.png" target="_blank" rel="noopener">View</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="exp-card" data-aos="fade-up">
+          <div class="exp-header">
+            <img class="exp-logo" src="images/image.png" alt="Elsner Technologies logo">
+            <div class="exp-meta">
+              <div class="exp-title">Mobile App Development Intern</div>
+              <div class="exp-company">
+                <a href="https://www.elsner.com/?utm_source=gmb&utm_medium=google" target="_blank"
+                  rel="noopener noreferrer" class="company-link">
+                  Elsner Technologies Pvt. Ltd.
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"
+                    style="width:12px;height:12px;display:inline-block;vertical-align:middle;margin-top:-2px">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+              <div class="exp-date">Sep 2022 - Oct 2022 · 2 mos</div>
+              <div class="exp-date">Ahmedabad, Gujarat, India</div>
+            </div>
+            <button class="expand-btn toggle-exp-btn" onclick="toggleDetails(this)" aria-label="Show Details"
+              style="flex-shrink:0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="exp-tags">
+            <span class="tag">Android Studio</span><span class="tag">Java</span><span class="tag">Kotlin</span>
+            <span class="tag">XML</span><span class="tag">UI Components</span><span class="tag">Layouts</span>
+          </div>
+          <p class="exp-desc">
+            I completed a 15-day Android Development Internship at Elsner Technologies, where I gained hands-on
+            experience in building Android UI components using XML, Java, and Kotlin. During this program, I worked
+            closely with mentors and learned how to navigate Android Studio, implement layouts, and understand mobile
+            app workflows. This internship helped me lay a strong foundation in mobile app development and boosted my
+            confidence in building real-world applications from scratch.
+          </p>
+          <div class="exp-details">
+            <div class="exp-details-inner">
+              <div
+                style="margin:1.75rem 0 0.75rem;font-size:0.8rem;font-weight:600;color:var(--muted2);font-family:'Geist Mono',monospace;text-transform:uppercase;letter-spacing:0.08em">
+                Internship Certificate</div>
+              <div class="cert-grid">
+                <div class="cert-card" data-aos="fade-up">
+                  <div class="cert-preview">
+                    <img src="images/c2.png" alt="Android Development Internship Certificate">
+                    <span class="cert-badge">Verified</span>
+                  </div>
+                  <div class="cert-body">
+                    <div class="cert-title">Android Development Internship</div>
+                    <div class="cert-issuer">Elsner Technologies Pvt. Ltd.</div>
+                    <div class="cert-meta">Sep 2022 · 15 Days · Ahmedabad</div>
+                    <p class="cert-desc">Issued for successful completion of a 15-day Android Development internship
+                      covering XML-based UI, Java/Kotlin fundamentals, and Android Studio workflows.</p>
+                    <div class="cert-actions">
+                      <a class="cert-btn" href="images/c2.png" target="_blank" rel="noopener">View</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+  <hr class="divider" />
+
+
+
+  <hr class="divider" />
+
+  <!-- SKILLS & PROFICIENCY DASHBOARD -->
+  <div class="section-full" id="skills">
+    <div class="section-inner">
+      <div class="skills-dashboard">
+        <!-- Left Side: Technical Skills -->
+        <div class="skills-left">
+          <p class="section-eyebrow">My Arsenal</p>
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="skills-cats" id="skillCats"></div>
+          <div class="skills-grid-container" id="skillsContainer">
+            <div class="skills-grid" id="skillsGrid"></div>
+          </div>
+          <p class="skills-count" id="skillCount"></p>
+        </div>
+
+        <!-- Right Side: Coding Proficiency -->
+        <div class="skills-right">
+          <p class="section-eyebrow">Data-Driven Skills</p>
+          <h2 class="section-title">Proficiency</h2>
+          <div class="proficiency-container" id="proficiencyGrid">
+            <!-- Dynamic Content from JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- SOFT SKILLS (stays full width below) -->
+      <div style="margin-top: 5rem;">
+        <p class="section-eyebrow">Beyond Coding</p>
+        <h2 class="section-title">Soft Skills</h2>
+        <div class="soft-skills-grid">
+
+          <div class="soft-skill-card" data-aos="fade-up">
+            <div class="soft-skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="6" />
+                <circle cx="12" cy="12" r="2" />
+              </svg></div>
+            <div class="soft-skill-title">Decision Making</div>
+            <p class="soft-skill-desc">Evaluating options and making informed, effective choices to drive projects
+              forward successfully.</p>
+          </div>
+
+          <div class="soft-skill-card" data-aos="fade-up">
+            <div class="soft-skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14" />
+              </svg></div>
+            <div class="soft-skill-title">Leadership</div>
+            <p class="soft-skill-desc">Guiding and motivating teams to achieve collective goals while fostering a
+              positive environment.</p>
+          </div>
+
+          <div class="soft-skill-card" data-aos="fade-up">
+            <div class="soft-skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 0 1-.837.276c-.47-.07-.802-.48-.968-.925a2.501 2.501 0 1 0-3.214 3.214c.446.166.855.497.925.968a.979.979 0 0 1-.276.837l-1.61 1.61a2.404 2.404 0 0 1-1.705.707 2.402 2.402 0 0 1-1.704-.706l-1.568-1.568a1.026 1.026 0 0 0-.877-.29c-.493.074-.84.504-1.02.968a2.5 2.5 0 1 1-3.237-3.237c.464-.18-.894-.527.967-1.02a1.026 1.026 0 0 0-.289-.877l-1.568-1.568A2.402 2.402 0 0 1 1.998 12c0-.617.236-1.234.706-1.704L4.23 8.77c.24-.24.581-.353.917-.303.515.077.877.528 1.073 1.01a2.5 2.5 0 1 0 3.259-3.259c-.482-.196-.933-.558-1.01-1.073-.05-.336.062-.676.303-.917l1.525-1.525A2.402 2.402 0 0 1 12 1.998c.617 0 1.234.236 1.704.706l1.568 1.568c.23.23.556.338.877.29.493-.074.84-.504 1.02-.968a2.5 2.5 0 1 1 3.237 3.237c-.464.18-.894.527-.967 1.02Z" />
+              </svg></div>
+            <div class="soft-skill-title">Problem-Solving</div>
+            <p class="soft-skill-desc">Approaching complex challenges with a logical mindset to find efficient and
+              scalable solutions.</p>
+          </div>
+
+          <div class="soft-skill-card" data-aos="fade-up">
+            <div class="soft-skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg></div>
+            <div class="soft-skill-title">Communication</div>
+            <p class="soft-skill-desc">Articulating technical concepts clearly to both technical and non-technical
+              stakeholders.</p>
+          </div>
+
+          <div class="soft-skill-card" data-aos="fade-up">
+            <div class="soft-skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg></div>
+            <div class="soft-skill-title">Teamwork</div>
+            <p class="soft-skill-desc">Working collaboratively within diverse teams, sharing ideas openly to achieve
+              common goals.</p>
+          </div>
+
+          <div class="soft-skill-card" data-aos="fade-up">
+            <div class="soft-skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg></div>
+            <div class="soft-skill-title">Time Management</div>
+            <p class="soft-skill-desc">Prioritizing tasks and meeting deadlines effectively while maintaining a high
+              standard of work.</p>
+          </div>
+
+          <div class="soft-skill-card" data-aos="fade-up">
+            <div class="soft-skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                <path d="M21 3v5h-5" />
+                <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                <path d="M8 16H3v5" />
+              </svg></div>
+            <div class="soft-skill-title">Adaptability</div>
+            <p class="soft-skill-desc">Quickly learning new technologies and adapting to changing project requirements
+              and environments.</p>
+          </div>
+
+          <div class="soft-skill-card" data-aos="fade-up">
+            <div class="soft-skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg></div>
+            <div class="soft-skill-title">Quick Learner</div>
+            <p class="soft-skill-desc">Rapidly absorbing new information and applying it effectively to overcome
+              technical hurdles.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- PROJECTS -->
+  <div class="section-full" id="projects">
+    <div class="section-inner">
+      <p class="section-eyebrow">Project Showcase</p>
+      <h2 class="section-title">Innovative Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card" data-aos="fade-up">
+          <div class="project-img">
+            <img src="images/projectlogo.png" alt="SAL Education Logo"
+              style="width: 100%; height: 100%; object-fit: contain; padding: 1rem; transition: transform 0.5s ease;">
+          </div>
+          <div class="project-body">
+            <div class="project-title">SAL Education - College Attendance Management System</div>
+            <p class="project-desc">A full-stack web application designed to digitize and streamline attendance
+              tracking,
+              lecture slot management, and leave application workflows. The system provides a secure, role-aware
+              digital
+              platform accessible to Admins, Teachers, and Students.</p>
+            <div
+              style="font-size:0.75rem;font-weight:600;color:var(--muted2);font-family:'Geist Mono',monospace;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">
+              Key Features</div>
+            <ul class="project-features">
+              <li>Role-Based Access System for secure user management</li>
+              <li>Digital Attendance Management with real-time tracking</li>
+              <li>Leave Application System with approval workflow</li>
+              <li>Lecture & Timetable Management for efficient scheduling</li>
+            </ul>
+            <div
+              style="margin-top:1.25rem;font-size:0.75rem;font-weight:600;color:var(--muted2);font-family:'Geist Mono',monospace;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">
+              Tech Stack</div>
+            <div class="project-tags">
+              <span class="tag">React 19</span><span class="tag">Node.js</span><span class="tag">MySQL</span><span
+                class="tag">Sequelize</span><span class="tag">Tailwind CSS 4</span><span class="tag">JWT</span><span
+                class="tag">Express</span><span class="tag">Vite</span>
+            </div>
+            <div class="project-links-row" style="margin-top:1rem">
+
+              <a href="https://github.com/Harsh172121/-SAL-Attendance-System.git" target="_blank"
+                class="proj-btn">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-aos="fade-up">
+          <div class="project-img">
+            <img src="images/poster.png" alt="SHIMP Expense Tracking System Poster"
+              style="width: 100%; height: 100%; object-fit: contain; padding: 1rem; transition: transform 0.5s ease;">
+          </div>
+          <div class="project-body">
+            <div class="project-title">SHIMP Expense Tracking System</div>
+            <div style="font-size:0.85rem;color:var(--accent);margin-bottom:0.5rem;font-weight:500;">Track Smarter, Save
+              Better, Stress Less.</div>
+            <p class="project-desc">SHIMP is a modern Android application designed to simplify personal finance
+              management. It empowers users to log income and expenditures in real-time, providing clear visual insights
+              and secure cloud synchronization to help them stay on top of their financial goals.</p>
+            <div
+              style="font-size:0.75rem;font-weight:600;color:var(--muted2);font-family:'Geist Mono',monospace;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">
+              Key Features</div>
+            <ul class="project-features">
+              <li>Dual Transaction Tracking for Income & Expenses</li>
+              <li>Interactive Visual Analytics with Dynamic Pie Charts</li>
+              <li>Real-Time Cloud Sync via Firebase Database</li>
+              <li>Comprehensive Dashboard with Financial Summaries</li>
+              <li>Smooth User Experience using Lottie Animations</li>
+              <li>Material Design UI for a clean, professional look</li>
+            </ul>
+            <div
+              style="margin-top:1.25rem;font-size:0.75rem;font-weight:600;color:var(--muted2);font-family:'Geist Mono',monospace;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">
+              Tech Stack</div>
+            <div class="project-tags">
+              <span class="tag">Android Studio</span><span class="tag">Java</span><span class="tag">XML</span><span
+                class="tag">Firebase</span><span class="tag">Material Design</span><span class="tag">Lottie</span><span
+                class="tag">MPAndroidChart</span>
+            </div>
+            <div class="project-links-row" style="margin-top:1rem">
+              <a href="https://github.com/Harsh172121/SHIMP-Expense-Tracking-System" class="proj-btn">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- VOLUNTEERING -->
+  <div class="section-full" id="volunteering">
+    <div class="section-inner">
+      <p class="section-eyebrow">Giving Back</p>
+      <h2 class="section-title">Volunteering</h2>
+      <div class="vol-card" data-aos="fade-up">
+        <div class="exp-header">
+          <img class="exp-logo" src="images/SAL.png" alt="SAL Education logo">
+          <div class="exp-meta">
+            <div class="exp-title">Anchor – Induction Program (Senior Anchor)</div>
+            <div class="exp-company">SAL COLLEGE OF ENGINEERING (113)</div>
+            <div class="exp-date">Jul 2025 · 1 mo</div>
+            <div class="exp-date">Education</div>
+          </div>
+        </div>
+        <p class="exp-desc">
+          Hosted the Induction Program at SAL College of Engineering as a senior anchor. Managed stage flow, guest
+          introduction, and audience engagement with confidence and clarity.
+          This experience helped me enhance my public speaking, confidence, and communication skills while learning to
+          handle live events with professionalism.
+        </p>
+
+        <div class="vol-gallery">
+          <div class="vol-img-wrapper" data-aos="zoom-in" data-aos-delay="100" data-label="Stage Presence">
+            <img src="images/vol2.png" alt="Volunteering Image 2"
+              onerror="this.src='https://placehold.co/600x400/111/4ade80?text=Stage+Presence'">
+          </div>
+          <div class="vol-img-wrapper" data-aos="zoom-in" data-aos-delay="200" data-label="Audience Engagement">
+            <img src="images/vol3.png" alt="Volunteering Image 3"
+              onerror="this.src='https://placehold.co/600x400/111/4ade80?text=Audience+Engagement'">
+          </div>
+          <div class="vol-img-wrapper" data-aos="zoom-in" data-aos-delay="300" data-label="Professional Anchoring">
+            <img src="images/vol4.png" alt="Volunteering Image 4"
+              onerror="this.src='https://placehold.co/600x400/111/4ade80?text=Professional+Anchoring'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- EDUCATION -->
+  <div class="section-full" id="education">
+    <div class="section-inner">
+      <p class="section-eyebrow">Academic Journey</p>
+      <h2 class="section-title">My Education</h2>
+      <div class="edu-list">
+
+        <div class="edu-card" data-aos="fade-up">
+          <div class="edu-header" style="justify-content: flex-start;">
+            <img class="edu-logo" src="images/SAL.png" alt="College Logo">
+            <div class="edu-meta" style="flex: 1;">
+              <div class="edu-degree">Bachelor of Engineering (B.E.)</div>
+              <div class="edu-school" style="margin-bottom: 0;">
+
+                SAL College Of Engineering (SAL)</div>
+              <div style="font-size: 0.8rem; color: var(--muted); margin-top: 2px;">Gujarat Technological University
+                (GTU)</div>
+            </div>
+            <div class="edu-year">Aug 2024 - Jul 2027</div>
+          </div>
+          <p class="edu-desc">During my B.Tech, I gained a solid foundation in computer science, honing my
+            problem-solving skills through hands-on projects. This experience fueled my passion for software
+            development
+            and taught me the importance of continuous learning in a rapidly evolving tech landscape.</p>
+          <div
+            style="margin: 1.25rem 0 0.5rem; font-size: 0.75rem; font-weight: 600; color: var(--muted2); font-family: 'Geist Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em;">
+            Relevant Coursework</div>
+          <div class="edu-courses">
+            <span class="course-tag">Data Structures</span>
+            <span class="course-tag">Database Management Systems</span>
+            <span class="course-tag">Object Oriented Programming -I</span>
+            <span class="course-tag">Analysis and Design of Algorithms</span>
+            <span class="course-tag">Advanced Java Programming</span>
+            <span class="course-tag">Web Programming</span>
+            <span class="course-tag">IOT and Applications</span>
+            <span class="course-tag">Artificial Intelligence</span>
+            <span class="course-tag">Mobile Application Development</span>
+            <span class="course-tag">Machine Learning (ML)</span>
+          </div>
+        </div>
+
+        <div class="edu-card" data-aos="fade-up">
+          <div class="edu-header" style="justify-content: flex-start;">
+            <img class="edu-logo" src="images/SAL.png" alt="Diploma College Logo">
+            <div class="edu-meta" style="flex: 1;">
+              <div class="edu-degree">Diploma in Engineering (D.E.)</div>
+              <div class="edu-school" style="margin-bottom: 0;">SAL Institute of Diploma Engineering (SIDS)</div>
+              <div style="font-size: 0.8rem; color: var(--muted); margin-top: 2px;">Gujarat Technological University
+                (GTU)</div>
+            </div>
+            <div class="edu-year">Oct 2021 - Jul 2024</div>
+          </div>
+          <p class="edu-desc">During my Diploma in Engineering, I built a strong foundation in core computer science
+            concepts and developed my problem-solving skills through practical assignments and projects. This journey
+            sparked my interest in software development and helped me understand the importance of continuously
+            upgrading my skills in the ever-evolving technology field. (CGPA: 8.63/10)</p>
+          <div
+            style="margin: 1.25rem 0 0.5rem; font-size: 0.75rem; font-weight: 600; color: var(--muted2); font-family: 'Geist Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em;">
+            Relevant Coursework</div>
+          <div class="edu-courses">
+            <span class="course-tag">Basic Computer Programming</span>
+            <span class="course-tag">Static Web Page Design</span>
+            <span class="course-tag">Basic Object Oriented Programming</span>
+            <span class="course-tag">Scripting Language - Python</span>
+            <span class="course-tag">Relational Database Management System</span>
+            <span class="course-tag">Data Structures and Algorithms</span>
+            <span class="course-tag">Responsive Web Page Design</span>
+            <span class="course-tag">Advanced Object Oriented Programming</span>
+            <span class="course-tag">Mobile Application Development using Android</span>
+            <span class="course-tag">Fundamentals of Artificial Intelligence</span>
+            <span class="course-tag">Introduction to Machine Learning</span>
+            <span class="course-tag">Fundamentals of IoT</span>
+            <span class="course-tag">Introduction to NO SQL</span>
+          </div>
+        </div>
+
+        <div class="edu-card" data-aos="fade-up">
+          <div class="edu-header" style="justify-content: flex-start;">
+            <img class="edu-logo" src="images/SSIS.webp" alt="School Logo">
+            <div class="edu-meta" style="flex: 1;">
+              <div class="edu-degree">Secondary School Certificate (SSC)</div>
+              <div class="edu-school">Shree Swaminarayan International School</div>
+            </div>
+            <div class="edu-year">May 2021</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- CONTACT -->
+  <div class="section-full" id="contact">
+    <div class="section-inner">
+      <p class="section-eyebrow">Reach Out</p>
+      <h2 class="section-title">Let's Connect</h2>
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <div>
+            <h3>Get in Touch</h3>
+            <p>I'm always open to discussing new opportunities, creative ideas, or ways to be part of your vision.
+              Feel
+              free to reach out!</p>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-label">Email</div>
+            <a href="mailto:darjih460@email.com" class="contact-val">darjih460@gmail.com</a>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-label">Location</div>
+            <div style="font-size:0.9rem;color:var(--text)">Ahmedabad,Gujarat,India</div>
+          </div>
+          <div>
+            <div class="contact-label" style="margin-bottom:0.75rem">Social Profiles</div>
+            <div class="contact-socials-row">
+              <a class="social-link" href="https://www.linkedin.com/in/harsh-darji-b23015290/" target="_blank"
+                title="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path
+                    d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                </svg>
+              </a>
+              <a class="social-link" href="https://github.com/Harsh172121" target="_blank" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.343-3.369-1.343-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.547 2.914 1.182.092-.923.35-1.548.636-1.904-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+                </svg>
+              </a>
+              <a class="social-link" href="mailto:harsh@email.com" target="_blank" title="Gmail">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+              </a>
+              <a class="social-link" href="https://www.instagram.com/harsh_docx?igsh=dWZ4dWs0Z3ZlbTVz&utm_source=qr" target="_blank" title="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 7 1.25 1.25 0 0 1 16 5.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <a href="Harsh Darji CV.pdf" class="contact-resume-btn" target="_blank">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z" />
+                      </svg>
+                      Download Resume
+                    </a>
+        </div>
+
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input class="form-input" type="text" placeholder="John Doe" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Email</label>
+            <input class="form-input" type="email" placeholder="john@email.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Message</label>
+            <textarea class="form-textarea" placeholder="Hi, I'd like to..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">Send Message</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo"># <span>Harsh.</span></div>
+        <p class="footer-tagline">Driven by a passion to decipher the world built on 0's and 1's, crafting products
+          that
+          inspire change and innovation.</p>
+        <div class="footer-socials">
+          <a class="social-link" href="https://www.linkedin.com/in/harsh-darji-b23015290/" target="_blank"
+            title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path
+                d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+            </svg>
+          </a>
+          <a class="social-link" href="https://github.com/Harsh172121" target="_blank" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.343-3.369-1.343-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.547 2.914 1.182.092-.923.35-1.548.636-1.904-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+            </svg>
+          </a>
+          <a class="social-link" href="mailto:harsh@email.com" target="_blank" title="Gmail">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+            </svg>
+          </a>
+          <a class="social-link" href="https://www.instagram.com/harsh_docx?igsh=dWZ4dWs0Z3ZlbTVz&utm_source=qr" target="_blank" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 7 1.25 1.25 0 0 1 16 5.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 Harsh Darji. All rights reserved.</p>
+  </footer>
+
+  <!-- TERMINAL TOGGLE -->
+  <button class="terminal-toggle" id="terminalToggle" title="Open Developer Terminal">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="4 17 10 11 4 5"></polyline>
+      <line x1="12" y1="19" x2="20" y2="19"></line>
+    </svg>
+  </button>
+
+  <!-- TERMINAL CONTAINER -->
+  <div class="terminal-container" id="terminalContainer">
+    <div class="terminal-header">
+      <div class="terminal-title">harsh@portfolio: ~</div>
+      <div class="terminal-actions">
+        <button onclick="toggleTerminal()" class="terminal-close">&times;</button>
+      </div>
+    </div>
+    <div class="terminal-body" id="terminalOutput">
+      <div class="terminal-line">Welcome to Harsh's Terminal. Type <span class="accent-text">'help'</span> to see
+        available commands.</div>
+    </div>
+    <div class="terminal-input-row">
+      <span class="terminal-prompt">➜</span>
+      <input type="text" id="terminalInput" spellcheck="false" autocomplete="off" autofocus>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: false,
+      offset: 80
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>

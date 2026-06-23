@@ -201,6 +201,66 @@ function toggleDetails(btn) {
   }
 }
 
+// ── TOGGLE CASE STUDY ──
+function toggleCaseStudy(btn) {
+  const card = btn.closest('.project-body') || btn.closest('.project-bento-content');
+  const caseStudy = card.querySelector('.project-case-study');
+  
+  if (caseStudy.classList.contains('open')) {
+    caseStudy.classList.remove('open');
+    btn.textContent = 'Case Study';
+  } else {
+    caseStudy.classList.add('open');
+    btn.textContent = 'Hide Case Study';
+  }
+  
+  if (window.AOS) {
+    setTimeout(() => {
+      AOS.refresh();
+    }, 400);
+  }
+}
+
+function normalizeGoogleDriveDownloadLink(url) {
+  if (!url) return '';
+
+  const trimmedUrl = url.trim();
+
+  try {
+    const parsedUrl = new URL(trimmedUrl);
+    if (!/drive\.google\.com$/i.test(parsedUrl.hostname)) {
+      return trimmedUrl;
+    }
+
+    const fileMatch = parsedUrl.pathname.match(/\/file\/d\/([^/]+)/i);
+    const sharedId = fileMatch?.[1] || parsedUrl.searchParams.get('id');
+
+    if (sharedId) {
+      return `https://drive.google.com/uc?export=download&id=${sharedId}`;
+    }
+
+    return trimmedUrl;
+  } catch (error) {
+    return trimmedUrl;
+  }
+}
+
+function handleApkDownload(event, linkEl) {
+  const apkLink = linkEl?.dataset?.apkLink?.trim();
+  if (!apkLink) {
+    event.preventDefault();
+    alert('APK link haju add nathi kari. Google Drive link mukya pachi aa button active thai jashe.');
+    return;
+  }
+
+  const finalLink = normalizeGoogleDriveDownloadLink(apkLink);
+  linkEl.href = finalLink;
+  linkEl.target = '_blank';
+  linkEl.rel = 'noopener noreferrer';
+  linkEl.removeAttribute('aria-disabled');
+  linkEl.classList.remove('is-disabled');
+}
+
 // ── CONTACT FORM ──
 async function handleSubmit(e) {
   e.preventDefault();
@@ -255,13 +315,15 @@ async function handleSubmit(e) {
 // ── MOBILE MENU ──
 function toggleMenu() {
   const links = document.querySelector('.nav-links');
-  if (links.style.display === 'flex') {
-    links.style.display = '';
-  } else {
-    links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:60px;left:0;right:0;background:#0c0c0c;padding:1rem;border-bottom:1px solid #222;gap:0.25rem;z-index:998';
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { links.style.display = ''; }, { once: true }));
-  }
+  links.classList.toggle('mobile-active');
 }
+
+// Close menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.remove('mobile-active');
+  });
+});
 
 // ── ACTIVE NAV ON SCROLL ──
 const sections = ['hero', 'experience', 'skills', 'projects', 'volunteering', 'education', 'contact'];
@@ -367,7 +429,7 @@ const mouse = { x: null, y: null, radius: 150 };
 // Custom Cursor Elements
 const cursorDot = document.querySelector('.cursor-dot');
 const cursorOutline = document.querySelector('.cursor-outline');
-const heroImg = document.querySelector('.hero-img-wrapper');
+const heroCard = document.getElementById('heroCard');
 
 window.addEventListener('mousemove', (e) => {
   mouse.x = e.x;
@@ -383,11 +445,67 @@ window.addEventListener('mousemove', (e) => {
     }, { duration: 500, fill: "forwards" });
   }
 
-  if (heroImg && window.innerWidth > 900) {
-    const moveX = (e.clientX - window.innerWidth / 2) / 30;
-    const moveY = (e.clientY - window.innerHeight / 2) / 30;
-    heroImg.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  if (heroCard && window.innerWidth > 900) {
+    const rect = heroCard.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const mouseX = e.clientX - centerX;
+    const mouseY = e.clientY - centerY;
+    
+    // Intense 3D tilt logic
+    const rotateX = (mouseY / (rect.height / 2)) * -20; // Max 20deg tilt
+    const rotateY = (mouseX / (rect.width / 2)) * 20;
+    
+    // Check if currently flipped to maintain rotation direction
+    const isFlipped = heroCard.classList.contains('flipped');
+    const finalRotateY = isFlipped ? rotateY + 180 : rotateY;
+    
+    heroCard.style.transform = `rotateX(${rotateX}deg) rotateY(${finalRotateY}deg)`;
   }
+});
+
+// Flip Hero Card on Click
+if (heroCard) {
+  heroCard.addEventListener('click', () => {
+    heroCard.classList.toggle('flipped');
+    // Reset transform briefly to allow smooth flip transition if needed
+  });
+  
+  // Reset tilt when mouse leaves
+  heroCard.addEventListener('mouseleave', () => {
+    const isFlipped = heroCard.classList.contains('flipped');
+    heroCard.style.transform = `rotateX(0deg) rotateY(${isFlipped ? 180 : 0}deg)`;
+  });
+}
+
+// ── MAGNETIC INTERACTIVITY ──
+const magneticElements = document.querySelectorAll('.social-link, .nav-cta, .proj-btn, .nav-links a, .hero-resume, .contact-resume-btn, .form-submit');
+
+magneticElements.forEach(el => {
+  el.addEventListener('mousemove', (e) => {
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    
+    // Magnetic pull strength (higher = more movement)
+    const strength = 20; 
+    
+    el.style.transform = `translate(${x / rect.width * strength}px, ${y / rect.height * strength}px)`;
+    
+    // Scale up the cursor outline when hovering magnetic elements
+    if (cursorOutline) {
+      cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+      cursorOutline.style.backgroundColor = 'rgba(74, 222, 128, 0.1)';
+    }
+  });
+
+  el.addEventListener('mouseleave', () => {
+    el.style.transform = 'translate(0, 0)';
+    if (cursorOutline) {
+      cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+      cursorOutline.style.backgroundColor = 'transparent';
+    }
+  });
 });
 
 window.addEventListener('resize', () => {
@@ -468,17 +586,15 @@ initParticles();
 animateParticles();
 
 // ── 3D GALAXY PARALLAX ──
-const skillsGalaxy = document.querySelector('.skills-galaxy');
+const skillsContainer = document.getElementById('skillsContainer');
 const skillsGrid = document.getElementById('skillsGrid');
 
-if (skillsGalaxy && skillsGrid) {
-  window.addEventListener('mousemove', (e) => {
-    const rect = skillsGalaxy.getBoundingClientRect();
+if (skillsContainer && skillsGrid) {
+  skillsContainer.addEventListener('mousemove', (e) => {
+    const rect = skillsContainer.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
-    if (x < 0 || x > rect.width || y < 0 || y > rect.height) return;
-
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
     
@@ -488,7 +604,7 @@ if (skillsGalaxy && skillsGrid) {
     skillsGrid.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   });
   
-  skillsGalaxy.addEventListener('mouseleave', () => {
+  skillsContainer.addEventListener('mouseleave', () => {
     skillsGrid.style.transform = `rotateX(0deg) rotateY(0deg)`;
   });
 }

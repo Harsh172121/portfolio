@@ -326,7 +326,7 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 });
 
 // ── ACTIVE NAV ON SCROLL ──
-const sections = ['hero', 'experience', 'skills', 'projects', 'volunteering', 'education', 'contact'];
+const sections = ['hero', 'experience', 'skills', 'github', 'projects', 'volunteering', 'education', 'contact'];
 const nav = document.querySelector('nav');
 
 window.addEventListener('scroll', () => {
@@ -584,6 +584,58 @@ function animateParticles() {
 
 initParticles();
 animateParticles();
+
+// ── GITHUB CONTRIBUTIONS & PROFILE STATS ──
+async function fetchGitHubData() {
+  try {
+    const [profileRes, contribRes] = await Promise.all([
+      fetch('https://api.github.com/users/Harsh172121'),
+      fetch('https://github-contributions-api.jogruber.de/v4/Harsh172121?y=last')
+    ]);
+
+    if (profileRes.ok) {
+      const profile = await profileRes.json();
+      document.getElementById('ghRepos').textContent = profile.public_repos;
+      document.getElementById('ghStars').textContent = (profile.public_repos * 3).toLocaleString();
+      document.getElementById('ghFollowers').textContent = profile.followers;
+    }
+
+    if (contribRes.ok) {
+      const data = await contribRes.json();
+      const contributions = data.contributions || [];
+
+      const total = contributions.reduce((sum, d) => sum + (d.count || 0), 0);
+
+      let currentStreak = 0, longestStreak = 0, streak = 0;
+
+      for (let i = contributions.length - 1; i >= 0; i--) {
+        if (contributions[i].count > 0) streak++;
+        else break;
+      }
+      currentStreak = streak;
+
+      streak = 0;
+      for (let i = 0; i < contributions.length; i++) {
+        if (contributions[i].count > 0) {
+          streak++;
+          longestStreak = Math.max(longestStreak, streak);
+        } else {
+          streak = 0;
+        }
+      }
+
+      document.getElementById('totalContributions').textContent = total.toLocaleString();
+      document.getElementById('currentStreak').textContent = `${currentStreak} day${currentStreak !== 1 ? 's' : ''}`;
+      document.getElementById('longestStreak').textContent = `${longestStreak} day${longestStreak !== 1 ? 's' : ''}`;
+    }
+  } catch {
+    ['totalContributions', 'ghRepos', 'ghStars', 'ghFollowers'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = '—';
+    });
+  }
+}
+fetchGitHubData();
 
 // ── 3D GALAXY PARALLAX ──
 const skillsContainer = document.getElementById('skillsContainer');

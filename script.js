@@ -372,10 +372,11 @@ terminalContainer.addEventListener('click', () => {
 terminalToggle.addEventListener('click', toggleTerminal);
 
 const commands = {
-  'help': 'Available commands: <span class="accent-text">about</span>, <span class="accent-text">skills</span>, <span class="accent-text">projects</span>, <span class="accent-text">contact</span>, <span class="accent-text">resume</span>, <span class="accent-text">clear</span>, <span class="accent-text">whoami</span>',
+  'help': 'Available commands: <span class="accent-text">about</span>, <span class="accent-text">skills</span>, <span class="accent-text">projects</span>, <span class="accent-text">freelancing</span>, <span class="accent-text">contact</span>, <span class="accent-text">resume</span>, <span class="accent-text">clear</span>, <span class="accent-text">whoami</span>',
   'about': 'Harsh Darji: A Full Stack Developer passionate about solving complex problems and building innovative products.',
   'skills': 'Languages: JS, TS, Java, Python. Frontend: React, Next.js. Backend: Node.js, Express. DB: MySQL, MongoDB.',
   'projects': 'Main Project: SAL Education (College Management System). Visit the Projects section for more!',
+  'freelancing': 'Nirmaan Academy — Inquiry &amp; Portfolio Platform (Next.js, Spring Boot, PostgreSQL). Visit the Freelancing section!',
   'contact': 'Email: darjih460@gmail.com | LinkedIn: harsh-darji-b23015290',
   'resume': 'Opening resume... <a href="Harsh Darji CV.pdf" target="_blank" class="accent-text">[Download PDF]</a>',
   'whoami': 'You are a curious developer exploring Harsh\'s portfolio. Welcome!',
